@@ -1,0 +1,180 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Music2",
+    "dateExported": "2023-11-17T11:24:10.236Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "1534bfaa-cd4a-494c-af7b-e39a2f868391",
+            "name": "Album",
+            "containerId": "",
+            "created": "2023-11-17T11:17:32.656Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "ab72f153-17b7-43af-8bc4-3a4c1f079534",
+            "name": "Put",
+            "containerId": "1534bfaa-cd4a-494c-af7b-e39a2f868391",
+            "created": "2023-11-17T11:20:03.884Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "b15b6859-6a64-4c8d-ac62-1d1b1a7e63dc",
+            "colId": "f392e812-5082-468e-be84-d61f5e5edde9",
+            "containerId": "ab72f153-17b7-43af-8bc4-3a4c1f079534",
+            "name": "putExistAlbum",
+            "url": "/album/id",
+            "method": "PUT",
+            "sortNum": 120000,
+            "created": "2023-11-17T11:20:03.888Z",
+            "modified": "2023-11-17T11:21:50.721Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"King Africa\",\n \"num_song\":4\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "201"
+                }
+            ]
+        },
+        {
+            "_id": "0f8e454b-2fad-4c8f-aa26-c02f0ff7e458",
+            "colId": "f392e812-5082-468e-be84-d61f5e5edde9",
+            "containerId": "ab72f153-17b7-43af-8bc4-3a4c1f079534",
+            "name": "putNoExistAlbum",
+            "url": "/album/7",
+            "method": "PUT",
+            "sortNum": 130000,
+            "created": "2023-11-17T11:20:03.888Z",
+            "modified": "2023-11-17T11:21:59.673Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"King Africa\",\n \"num_song\":4\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "404"
+                }
+            ]
+        },
+        {
+            "_id": "4ce42603-ddc6-4383-93c0-cb31c5d77909",
+            "colId": "f392e812-5082-468e-be84-d61f5e5edde9",
+            "containerId": "ab72f153-17b7-43af-8bc4-3a4c1f079534",
+            "name": "putAlbumWithoutName",
+            "url": "/album/id",
+            "method": "PUT",
+            "sortNum": 140000,
+            "created": "2023-11-17T11:20:03.888Z",
+            "modified": "2023-11-17T11:22:17.293Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n \"num_song\":4\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "notequal",
+                    "value": "201"
+                }
+            ]
+        },
+        {
+            "_id": "8b95eeb7-b595-4e5e-a905-b582bca5ef76",
+            "colId": "f392e812-5082-468e-be84-d61f5e5edde9",
+            "containerId": "ab72f153-17b7-43af-8bc4-3a4c1f079534",
+            "name": "putAlbumWithoutNumSong",
+            "url": "/album/id",
+            "method": "PUT",
+            "sortNum": 150000,
+            "created": "2023-11-17T11:20:03.888Z",
+            "modified": "2023-11-17T11:22:27.438Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"paquito\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "notequal",
+                    "value": "201"
+                }
+            ]
+        },
+        {
+            "_id": "51267a4f-b133-4ebe-8c2f-bd6c94c6b44e",
+            "colId": "f392e812-5082-468e-be84-d61f5e5edde9",
+            "containerId": "ab72f153-17b7-43af-8bc4-3a4c1f079534",
+            "name": "putAlbumWithStringNumSong",
+            "url": "/album/id",
+            "method": "PUT",
+            "sortNum": 160000,
+            "created": "2023-11-17T11:20:03.888Z",
+            "modified": "2023-11-17T11:23:12.481Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Fearless\",\n \"num_song\":\"4\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "notequal",
+                    "value": "201"
+                }
+            ]
+        },
+        {
+            "_id": "6ef1a9f2-cf5b-4a32-95da-39936b2311a6",
+            "colId": "f392e812-5082-468e-be84-d61f5e5edde9",
+            "containerId": "ab72f153-17b7-43af-8bc4-3a4c1f079534",
+            "name": "putAlbumWithNumberName",
+            "url": "/album/id",
+            "method": "PUT",
+            "sortNum": 170000,
+            "created": "2023-11-17T11:20:03.888Z",
+            "modified": "2023-11-17T11:22:56.437Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": 5,\n \"num_song\":4\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "notequal",
+                    "value": "201"
+                }
+            ]
+        }
+    ]
+}
