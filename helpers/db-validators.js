@@ -49,4 +49,14 @@ const existNameAlbum = async(name)=>{
     }
 }
 
-module.exports = {existName, existNameSinger, existNameAlbum, existNameUpdate, exitUserEmail, exitUserLogin};
+
+const isCorrectRol = async(rol)=>{
+    
+    if(rol != 'ADMIN_ROLE' || rol!='USER_ROL'){
+        throw new Error(`Error`);
+    }
+}
+
+
+
+module.exports = {existName, existNameSinger, existNameAlbum, existNameUpdate, exitUserEmail, exitUserLogin, isCorrectRol};

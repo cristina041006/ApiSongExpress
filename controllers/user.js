@@ -1,5 +1,6 @@
 const User = require("../models/user");
 const{exitUserLogin, exitUserEmail} = require("../helpers/db-validators");
+const bcryptjs = require('bcryptjs')
 
 const getAllUser = async (req, res) =>{
     try {
@@ -14,17 +15,22 @@ const getUser = async (req, res) => {
     try {
         const user = await User.findById(req.params.id);
         if(user!=null){
-            res.status(200).json(song);
+            res.status(200).json(user);
         }else{
             res.status(404).json({message: "not found"})
         }
     } catch (error) {
+        console.log(error);
         res.status(500).json({message: error});
     }
 }
 
 const addUser = async (req, res)=>{
+    
+    const salt = bcryptjs.genSaltSync();
+    const encryptedPassword = bcryptjs.hashSync(req.body.password, salt)
     const user = req.body;
+    user.password = encryptedPassword
     const newUser = new User(user)
     try{
         await newUser.save();
@@ -36,7 +42,7 @@ const addUser = async (req, res)=>{
 
 const deleteUser = async (req, res) =>{
     try {
-        const deleteUser = await User.findByIdAndDelete(req.params.id);
+        const deleteUser = await User.findByIdAndUpdate(req.params.id, {active: false});
         res.status(204).json(deleteUser);
     } catch (error) {
         console.log(error);
